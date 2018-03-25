@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Films</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="../static/css/layout.css" th:href="@{/css/layout.css}" />
+
+
+</head>
+<body>
+
+		<div class="signout">
+		<form th:action="@{/logout}" method="post">
+			<input sec:authorize="hasAnyAuthority('ADMIN', 'USER')"  type="submit" value="Sign Out" class="button"/>
+		</form>
+	</div>
+	<div class="add">
+		<a sec:authorize="hasAuthority('ADMIN')" href="/add" class="button">Add Film</a>
+	</div>
+	<h1 class="heading">Films</h1>
+	
+    <table class="table">
+		<tr>
+		    <th>Name</th>
+		    <th>Year</th>
+		    <th>Director</th>
+		    <th>Actors</th>
+		    <th>Category</th>
+		    <th>Rating <br/>/5</th>
+		    <th>Review</th>
+		    <th sec:authorize="hasAuthority('ADMIN')"> </th>
+		</tr>  
+    	<tr th:each = "film : ${films}">
+    		<td th:text="${film.name}"></td>
+    		<td th:text="${film.year}"></td>
+    		<td th:text="${film.director}" ></td>
+    		<td th:text="${film.actors}"></td>
+    		<td th:text="${film.category.name}"></td>
+    		<td th:text="${film.rating}"></td>
+    		<td th:text="${film.review}"></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${film.id})}" class="deleteButton">Delete</a></td>
+ 			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${film.id})}" class="editButton">Edit</a></td>		
+    	</tr>
+     </table>
+    
+</body>
+</html>

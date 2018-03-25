@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>Edit film</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="../static/css/layout.css" th:href="@{/css/layout.css}" />
+</head>
+<body>
+
+<div class="signout">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="button"/>
+		</form>
+	</div>
+	<div class="filmlist">
+		<a sec:authorize="hasAuthority('ADMIN')" href="/filmlist" class="button">Films</a>
+	</div>
+
+	<h1>Edit Film</h1>
+	<div class="container">
+		<form th:object="${film}" th:action="@{../save}" action="#" method="post">
+		  	<input type="hidden" th:field="*{id}" class="form-control"/>
+		  	<div class="field">
+		  	<label for="name">Name</label> <br/>
+			<input class="input" type="text" id="name" th:field="*{name}" />
+			</div>
+
+		  	<div class="field">
+		  	<label for="year">Year</label><br/>
+			<input class="input" type="text" id="year" th:field="*{year}" /></div>
+	
+		  	<div class="field">
+		  	<label for="director">Director</label><br/>
+			<input class="input" type="text" id="director" th:field="*{director}" />
+			</div>
+
+			<div class="field">
+			<label for="actors">Actors</label><br/>
+			<input class="input" type="text" id="actors" th:field="*{actors}" />
+			</div>
+		
+			<div class="field">
+			<label for="catglist">Category</label><br/>
+			 <select id="catglist" th:field="*{category}" class="input">
+       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+    		</div>
+
+			<div class="field">
+			<label for="rating">Review</label><br/>
+			<input class="reviewinput" type="text" id="review" th:field="*{review}" />
+			</div>
+
+			<div class="field">
+			<label for="rating">Rating</label><br/>
+			 <select id="rating" th:field="*{rating}" class="input">
+       			<option value="1">1</option>
+       			<option value="2">2</option>
+       			<option value="3">3</option>
+       			<option value="4">4</option>
+       			<option value="5">5</option>
+    		</select>
+			</div>
+			
+
+    		<br/><br/>
+		<input class="button" type="submit" value="Save"></input>
+	
+		</form>
+	</div>
+</body>
+</html>

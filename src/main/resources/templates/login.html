@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <link type="text/css" rel="stylesheet" href="../static/css/login.css" th:href="@{/css/login.css}" />
+   
+    <head>
+        <title>Film ratings</title>
+    </head>
+    <body>
+    
+    <h1>Film Ratings</h1>
+    
+    <div class="container">
+    
+    <br/>
+    <h3>Login</h3>
+
+        <div class="error" th:if="${param.error}">
+            Invalid username and password.
+        </div>       
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+       
+        <form th:action="@{/login}" method="post">
+            <div class="label"><label> Username  </label> <br/>
+            <input class="input" type="text" name="username"/></div>
+           <div class="label"> <label> Password  </label> <br/>
+           <input class="input" type="password" name="password"/></div>
+            <div class="signin"><input class="button" type="submit" value="Sign In"/></div>
+       
+                <div class="add">
+		<a href="/filmlist" class="button">Continue without signing in</a>
+	</div>
+       
+        </form>
+         
+   
+        
+       </div>
+    </body>
+</html>

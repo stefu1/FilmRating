@@ -1,0 +1,109 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background: url(/images/background.png);
+	font-family: Arial, Helvetica, sans-serif;
+	background-attachment: fixed; 
+	
+}
+
+.signout {
+	position: absolute;
+    top: 3%;
+    right: 3%;
+
+}
+
+.button{
+
+    background-color: #a6a6a6;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #808080;
+    color: white;
+}
+	
+	
+.deleteButton {
+
+color: #ff0000;
+text-decoration: none;
+}
+
+.editButton{
+	
+	text-decoration: none;
+}
+
+.add {
+	position: absolute;
+    top: 3%;
+    left: 3%;
+
+}
+
+h1{
+	text-align: center;
+}
+
+table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    opacity: 0.8;
+}
+
+th, td {
+    padding: 15px;
+}
+
+.input {
+
+	width: 95%;
+	height: 20px;
+	outline: none;
+	
+}
+
+.field{
+
+	display:block;
+
+	
+	}
+
+.container {
+	background-color: white;
+	text-align: center;
+	display:block;
+	margin-left:35%;
+	margin-right:35%;
+	opacity: 0.9;
+	border-style: solid;
+	border-color: #808080;
+	
+	
+}
+
+.reviewinput {
+
+	width: 95%;
+	height: 30px;
+	outline: none;
+}
+
